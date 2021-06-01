@@ -74,7 +74,7 @@ scikit-learn==0.24.2
 scipy==1.6.3 
 setuptools==57.0.0 
 six==1.16.0 
-streamlit==0.61.0 
+streamlit==0.69
 terminado==0.10.0 
 testpath==0.5.0 
 threadpoolctl==2.1.0 
