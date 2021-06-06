@@ -323,7 +323,7 @@ def openpose():
                     break
 
             cap.release()
-            # cv2.destroyAllWindows()
+            cv2.destroyAllWindows()
         st.write("Quit Webcam - Press Q :octagonal_sign:")
 
 
