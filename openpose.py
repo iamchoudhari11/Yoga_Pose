@@ -278,55 +278,6 @@ def openpose():
             st.image(frameClone, channels="BGR")
 
 
-        ### Here i am here working on Real time on webcam and model is Tensorflow(graph_opt.pb)
-
-        st.markdown("### To Check out Multi Person Estimation click the button below :handball: :man-man-girl: ")
-        
-
-
-        parser = argparse.ArgumentParser(
-                description='This script is used to demonstrate OpenPose human pose estimation network '
-                            'from https://github.com/CMU-Perceptual-Computing-Lab/openpose project using OpenCV. '
-                            'The sample and model are simplified and could be used for a single person on the frame.')
-        parser.add_argument('--input', #default= "sample1.jpg",
-                            help='Path to image or video. Skip to capture frames from camera')
-        parser.add_argument('--proto', help='Path to .prototxt')
-        parser.add_argument('--model', default="openpose/graph_opt.pb", help='Path to .caffemodel')
-        parser.add_argument('--dataset',default="COCO" , help='Specify what kind of model was trained. '
-                                            'It could be (COCO, MPI) depends on dataset.')
-        parser.add_argument('--thr', default=0.2, type=float, help='Threshold value for pose parts heat map')
-        parser.add_argument('--width', default=386, type=int, help='Resize input to specific width.')
-        parser.add_argument('--height', default=386, type=int, help='Resize input to specific height.')
-        parser.add_argument('--inf_engine', action='store_true',
-                            help='Enable Intel Inference Engine computational backend. '
-                                'Check that plugins folder is in LD_LIBRARY_PATH environment variable')
-
-        args = parser.parse_args()
-
-        e = estimator.PoseEstimator()
-        ok = st.button("Openpose")
-        if ok: 
-            cap = cv2.VideoCapture(0)
-            while cap.isOpened():
-                ret,frame = cap.read()
-
-                t = time.time()
-                humans = e.inference(frame,args.model,args.width,args.height)
-
-                elapsed = time.time() - t
-                print('inference image: %s in %.4f seconds.' % (args.input, elapsed))
-
-                image = e.draw_humans(frame, humans, imgcopy=False)
-                cv2.imshow('tf-pose-estimation result', image)
-
-                if cv2.waitKey(10) & 0xFF == ord('q'):
-                    break
-
-            cap.release()
-            cv2.destroyAllWindows()
-        st.write("Quit Webcam - Press Q :octagonal_sign:")
-
-
 
     with pre:
         st.sidebar.markdown("<h1 style='color:Red ;'>References</h1>", unsafe_allow_html=True)

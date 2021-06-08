@@ -156,7 +156,7 @@ def blazepose():
                                 
                 cv2.imshow('Raw Webcam Feed', image)
 
-                if cv2.waitKey(10) & 0xFF == ord('q'):
+                if cv2.waitKey(2000) & 0xFF == ord('q'):
                     break
 
         cap.release()
