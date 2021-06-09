@@ -45,7 +45,27 @@ def blazepose():
         
         st.markdown("<h2 style='text-align: center; color:Red ;'>Model: </h2>", unsafe_allow_html=True)
         st.markdown("### The Model predict's the Yoga posture of a single person either he/she is doing Poses like **1) Tadasan**,**2) Balancing**,**3) Warrior Pose**,**4) Padmasana** :walking: :wrestlers:")
-       
+        
+        col1,col2 = st.beta_columns([2,2])
+        with col1:
+            st.markdown("### Padmasana: ")
+            st.image('images/padmasan.jpg',width=400)
+        with col2:
+            st.markdown("### Tadasana: ")
+            st.image('images/Tadasan.png',width=500)
+
+        col3,col4 = st.beta_columns([2,2])
+        with col3:
+            st.markdown("### Warrior: ")
+            st.image('images/warrior.jpg',width=400)
+        with col4:
+            st.markdown("### Balancing: ")
+            st.image('images/tree.jpg',width=500)
+        
+        st.markdown("<h3 style= color:Red ;'>Press the Below Button to Try out: </h3>", unsafe_allow_html=True)
+
+        # yoga = ['images/padma.gif']
+        # st.image(yoga, use_column_width=True* len(blaze1))
 
 
     
@@ -156,7 +176,7 @@ def blazepose():
                                 
                 cv2.imshow('Raw Webcam Feed', image)
 
-                if cv2.waitKey(2000) & 0xFF == ord('q'):
+                if cv2.waitKey(10) & 0xFF == ord('q'):
                     break
 
         cap.release()

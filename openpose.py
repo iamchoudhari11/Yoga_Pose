@@ -1,6 +1,5 @@
 import streamlit as st
 from PIL import Image
-import estimator
 import cv2
 import argparse
 import time
